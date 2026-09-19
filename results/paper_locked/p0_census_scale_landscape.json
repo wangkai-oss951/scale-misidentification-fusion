@@ -1,0 +1,96 @@
+{
+  "protocol": "p0_census_scale_landscape",
+  "n_rows": 142,
+  "n_comparable": 141,
+  "n_other": 1,
+  "n_vectors_in_npz": 63,
+  "never_recomputed_all_142": true,
+  "comparable": {
+    "n": 141,
+    "n_with_q": 77,
+    "frac_q_lt_r": 0.7922077922077922,
+    "kendall_tau_r_rmse": 0.018848804215646536,
+    "kendall_p": 0.7402357670288329,
+    "rank_inversion_rate": 0.5094244021078232,
+    "n_pairs": 9868,
+    "r_bin_rmse_spread": [
+      {
+        "r_lo": 0.6821198276199286,
+        "r_hi": 0.7021198276199286,
+        "n": 2,
+        "rmse_spread": 8.666375428660377,
+        "rmse_min": 30.808772952652152,
+        "rmse_max": 39.47514838131253
+      },
+      {
+        "r_lo": 0.7021198276199286,
+        "r_hi": 0.7221198276199287,
+        "n": 6,
+        "rmse_spread": 9.78498975010669,
+        "rmse_min": 29.453642141253454,
+        "rmse_max": 39.23863189136014
+      },
+      {
+        "r_lo": 0.7221198276199287,
+        "r_hi": 0.7421198276199287,
+        "n": 13,
+        "rmse_spread": 10.497971614200335,
+        "rmse_min": 28.452098166154048,
+        "rmse_max": 38.95006978035438
+      },
+      {
+        "r_lo": 0.7421198276199287,
+        "r_hi": 0.7621198276199287,
+        "n": 45,
+        "rmse_spread": 14.09475043066574,
+        "rmse_min": 27.05522505739662,
+        "rmse_max": 41.14997548806236
+      },
+      {
+        "r_lo": 0.7621198276199287,
+        "r_hi": 0.7821198276199287,
+        "n": 68,
+        "rmse_spread": 14.46926383712577,
+        "rmse_min": 26.46619683649588,
+        "rmse_max": 40.93546067362165
+      },
+      {
+        "r_lo": 0.7821198276199287,
+        "r_hi": 0.8021198276199287,
+        "n": 7,
+        "rmse_spread": 1.0125593341724084,
+        "rmse_min": 36.06946603626471,
+        "rmse_max": 37.082025370437115
+      }
+    ]
+  },
+  "other_descriptive": [
+    {
+      "name": "Cuervo_approx_WavLM_base",
+      "family": "cuervo",
+      "pred_source": "cuervo_wavlm_base_pred.npz",
+      "has_vector": true,
+      "in_census_npz": false,
+      "evaluation_set_id": "cec2_holdout_frame_fft_split",
+      "label_version": "cec2_meta.jsonl:correctness",
+      "split_protocol": "frame_fft_split.json train/dev/test scenes",
+      "n_test_scenes": 60,
+      "system_origin": "cuervo",
+      "already_calibrated": true,
+      "r": 0.7760035055342933,
+      "rmse": 27.080357785002,
+      "mae": 17.379104459406555,
+      "beta": 0.7392518402251994,
+      "q_census_sigma_ratio": 0.952639820507267,
+      "q_lt_r_census": false,
+      "cohort": "other"
+    }
+  ],
+  "vector_G_aff": {
+    "n": 63,
+    "spearman_qr2_Gaff2": 0.8141231817963609,
+    "frac_q_lt_r": 0.9682539682539683
+  },
+  "n_vector_G_aff": 63,
+  "audit_n": 142
+}

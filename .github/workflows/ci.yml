@@ -1,0 +1,30 @@
+name: verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Check the released aggregates against the manuscript numbers
+        run: python scripts/verify_paper_numbers.py --config configs/cec2.yaml
+      - name: Reproduce the synthetic optimizer/certificate path
+        run: python scripts/make_example_data.py
+      - name: Reproduce the figures and tables from the locked aggregates
+        run: |
+          python scripts/reproduce_fig1.py --config configs/cec2.yaml
+          python scripts/reproduce_fig2.py --config configs/cec2.yaml
+          python scripts/reproduce_fig3.py --config configs/cec2.yaml
+          python scripts/reproduce_tables.py --config configs/cec2.yaml

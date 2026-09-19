@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this code or the released aggregates, please cite the paper."
+title: "Scale Misidentification in Correlation-Based Intelligibility Fusion"
+authors:
+  - family-names: Wang
+    given-names: Kai
+  - family-names: Zhang
+    given-names: Yuxiang
+  - family-names: Liu
+    given-names: Jiwu
+  - family-names: Gong
+    given-names: Qin
+type: software
+license: MIT
+repository-code: "https://github.com/wangkai-oss951/scale-misidentification-fusion"
+keywords:
+  - speech intelligibility prediction
+  - correlation-based fusion
+  - output scale
+  - self-supervised speech representation
+  - hearing impairment
