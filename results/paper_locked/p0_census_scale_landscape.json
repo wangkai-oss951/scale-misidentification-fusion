@@ -5,6 +5,25 @@
   "n_other": 1,
   "n_vectors_in_npz": 63,
   "never_recomputed_all_142": true,
+  "by_calibration_status": {
+    "explicitly_raw_uncalibrated": {
+      "n_with_q": 74,
+      "n_q_lt_r": 61,
+      "frac_q_lt_r": 0.8243243243243243
+    },
+    "explicitly_calibrated": {
+      "n_with_q": 3,
+      "n_q_lt_r": 0,
+      "frac_q_lt_r": 0.0
+    },
+    "unknown": {
+      "n_with_q": 0,
+      "n_q_lt_r": 0,
+      "frac_q_lt_r": null
+    },
+    "rule": "explicitly_raw_uncalibrated: protocol heads, fusions and A1 pools without a documented DEV OLS/isotonic map; explicitly_calibrated: haspi_resid residual systems and HASPI physical; unknown: unverified post-hoc maps.",
+    "note": "The manuscript quotes 61/74 (82.4%) for the explicitly raw/uncalibrated subset. Without that filter the rate over all systems with spread statistics is comparable.frac_q_lt_r = 61/77 (79.2%). Both are reproduced from this single file."
+  },
   "comparable": {
     "n": 141,
     "n_with_q": 77,

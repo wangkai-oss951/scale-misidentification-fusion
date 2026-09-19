@@ -220,6 +220,31 @@ def main() -> int:
     c.eq("census Spearman rho ((q-r)^2 vs G_aff)", vec["spearman_qr2_Gaff2"], 0.8141231817963609)
     c.eq("census rho rounds to the paper value", round(vec["spearman_qr2_Gaff2"], 2), 0.81, 1e-9)
 
+    cal = census["by_calibration_status"]
+    raw = cal["explicitly_raw_uncalibrated"]
+    cle = cal["explicitly_calibrated"]
+    c.eq("census raw/uncalibrated with spread statistics", raw["n_with_q"], 74)
+    c.eq("census raw/uncalibrated q<r count", raw["n_q_lt_r"], 61)
+    c.eq("census raw/uncalibrated q<r fraction", raw["frac_q_lt_r"], 0.8243243243243243)
+    c.eq(
+        "census raw share rounds to the paper value",
+        round(raw["frac_q_lt_r"] * 100, 1),
+        82.4,
+        1e-9,
+    )
+    c.eq("census explicitly calibrated with spread statistics", cle["n_with_q"], 3)
+    c.eq("census explicitly calibrated q<r count", cle["n_q_lt_r"], 0)
+    c.txt(
+        "census headline is derivable from the released breakdown",
+        f"{raw['n_q_lt_r']}/{raw['n_with_q']}",
+        tables["census"]["explicitly_raw_uncalibrated_q_lt_r"],
+    )
+    c.eq(
+        "census breakdown sums to the unfiltered denominator",
+        raw["n_with_q"] + cle["n_with_q"] + cal["unknown"]["n_with_q"],
+        comp["n_with_q"],
+    )
+
     print()
     print("-- Guardrails carried by the locked protocol --")
     c.ok("not an official CPC2 evaluation", mech["not_official_cpc2_eval"] is True)

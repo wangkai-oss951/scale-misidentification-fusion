@@ -28,7 +28,8 @@ To spot-check a single number by hand, open the file and search for the key path
 | Clinical `G_q` closes 73% of the `\|q−r\|` gap | `p0_clinical_mse_decomp.json` | per-seed `G_q` over `rows[]` | mean 0.7268 |
 | Positivity/units do not move `π` or `r` (machine precision) | `paper_tables.json` | `identifiability_closure`, `unit_change_example` | ≤2.1e-15, ≤7.8e-16 |
 | Group-mean removal does not create the barrier | `p0_within_group_barrier.json` | `frac_Q_lt_r_within_listener`, `..._scene` | 1.0 / 1.0 over 15 systems |
-| Archived census: explicitly raw/q<r | `paper_tables.json` | `census` | 61/74 (82.4%), **not** an official leaderboard |
+| Archived census: explicitly raw/q<r | `p0_census_scale_landscape.json` | `by_calibration_status.explicitly_raw_uncalibrated` | 61/74 (82.4%) |
+| Same file, unfiltered denominator | `p0_census_scale_landscape.json` | `comparable.frac_q_lt_r`, `comparable.n_with_q` | 61/77 (79.2%) — the 74/77 split is the calibration-status filter |
 | Pearson vs raw-RMSE rankings nearly unrelated | `p0_census_scale_landscape.json` | `comparable.kendall_tau_r_rmse`, `.rank_inversion_rate`, `.n_pairs` | τ=0.01885, inversion 0.50942, 9868 pairs |
 | Census coverage of the archived audit | `p0_census_scale_landscape.json` | `n_rows`, `n_comparable`, `comparable.n_with_q` | 142 audited / 141 comparable / 77 with spread statistics |
 | `(q−r)²` tracks held-out affine headroom | `p0_census_scale_landscape.json` | `vector_G_aff.spearman_qr2_Gaff2`, `.n` | Spearman ρ=0.81412 over n=63 systems |

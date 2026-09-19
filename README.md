@@ -47,18 +47,32 @@ python -m pip install -r requirements.txt
 python scripts/verify_paper_numbers.py --config configs/cec2.yaml
 ```
 
-Expected tail (71 checks, all `[PASS]`):
+Expected tail (79 checks, all `[PASS]`):
 
 ```text
 [PASS] median eps_cert (linear)  (got 0.404350240734 expected 0.404350240734)
 [PASS] median numerical g(.005)  (got 0.564652910609 expected 0.564652910609)
 [PASS] Cor.2 holds system-wise (15/15 at eps=.005)  (min slack 0.0665)
 [PASS] census Kendall tau (r vs RMSE)  (got 0.0188488042156 expected 0.0188488042156)
+[PASS] census pairwise rank-inversion rate  (got 0.509424402108 expected 0.509424402108)
+[PASS] census raw/uncalibrated q<r count  (got 61 expected 61)
 [PASS] census Spearman rho ((q-r)^2 vs G_aff)  (got 0.814123181796 expected 0.814123181796)
 [PASS] clinical seed-wise mean G_q  (got 0.726806256935 expected 0.726806256935)
 
-71/71 checks passed
+79/79 checks passed
 ```
+
+The census statistics quoted in the paper are all in
+`results/paper_locked/p0_census_scale_landscape.json`:
+
+| Quoted in the paper | JSON key | Value |
+|---|---|---|
+| Kendall τ = 0.019 | `comparable.kendall_tau_r_rmse` | 0.0188488 |
+| pairwise inversion 0.51 | `comparable.rank_inversion_rate` | 0.5094244 |
+| 63-system subset | `vector_G_aff.n` | 63 |
+| Spearman ρ = 0.81 | `vector_G_aff.spearman_qr2_Gaff2` | 0.8141232 |
+| 61/74 (82.4%) explicitly raw | `by_calibration_status.explicitly_raw_uncalibrated` | n=74, q<r=61 |
+| 61/77 (79.2%) unfiltered | `comparable.n_with_q`, `comparable.frac_q_lt_r` | 77, 0.7922078 |
 
 Figures and tables:
 
@@ -135,7 +149,8 @@ shares). `scripts/reproduce_fig3.py`, `scripts/affine_headroom.py`.
 | Fig. 3b MSE shares | `scripts/scale_metrics.py` (`mse_terms`) | `paper_tables.json` |
 | Tables 1–2 | `scripts/reproduce_tables.py` | `paper_tables.json`, `p0_near_maxr_frontier.json`, `p0_clinical_mse_decomp.json`, `p0_within_group_barrier.json` |
 | Within-listener / within-scene | `scripts/residualize.py` | `p0_within_group_barrier.json` |
-| Archived-census rank agreement (τ, inversion, ρ) | `scripts/verify_paper_numbers.py` | `p0_census_scale_landscape.json`, `paper_tables.json` |
+| Archived-census rank agreement (τ, inversion, n=63, ρ) | `scripts/verify_paper_numbers.py` | `p0_census_scale_landscape.json` |
+| Census prevalence 61/74 vs unfiltered 61/77 | `scripts/verify_paper_numbers.py` | `p0_census_scale_landscape.json` (`by_calibration_status`) |
 | Cross-check of every number above | `scripts/verify_paper_numbers.py` | all of `results/paper_locked/` |
 
 Exact key paths for each claim are listed in [`docs/EVIDENCE.md`](docs/EVIDENCE.md).

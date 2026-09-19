@@ -49,7 +49,7 @@
     "explicitly_raw_uncalibrated_q_lt_r": "61/74",
     "not_official_cpc2_leaderboard": true,
     "rank_agreement_file": "p0_census_scale_landscape.json",
-    "note": "This block keeps only the headline count. Kendall tau, the pairwise rank-inversion rate, the 63-system affine-headroom subset and its Spearman rho live in rank_agreement_file, which is also released."
+    "note": "This block keeps only the headline count. rank_agreement_file is also released and carries (i) the calibration-status breakdown that yields 61/74 versus the unfiltered 61/77, and (ii) Kendall tau, the pairwise rank-inversion rate, and the 63-system affine-headroom subset with its Spearman rho."
   },
   "identifiability_closure": {
     "t1_max_rel_mse_err": 2.05e-15,
