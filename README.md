@@ -58,10 +58,15 @@ The three `reproduce_fig2/3` + `reproduce_tables` commands reprint the core numb
 
 Clinical evidence in the paper is a **single-head** `raw768_time` person-holdout. The five-head quantities `Q` and `r_max` are fusion feasible-set objects and are **not** applied to that corpus. Released clinical numbers are aggregate `r,q,RMSE,β` and MSE-term shares.
 
-To recompute fusion diagnostics from your own five-head matrices, store `P` as shape `(k, n)` with a DEV index and call:
+To recompute fusion diagnostics from your own five-head matrices, store `P` as shape `(k, n)` with a DEV index. The modules live in `scripts/` (not an installed package):
+
+```bash
+# PowerShell
+$env:PYTHONPATH = "scripts"
+python -c "from certificate import certificate_quantities, numerical_frontier; print('ok')"
+```
 
 ```python
-from certificate import certificate_quantities, numerical_frontier
 cert = certificate_quantities(P[:, dev], y[dev])
 g = numerical_frontier(P[:, dev], y[dev], cert["r_max"], eps=0.005)
 ```

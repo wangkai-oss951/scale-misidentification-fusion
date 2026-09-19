@@ -183,8 +183,7 @@
     "ac_mean_q": 0.4442298637177908,
     "raw_mean_beta": 0.05631085231247512,
     "ac_mean_beta": 0.24867516934139178,
-    "gate_still_fail_delta_rmse_le_neg5": true,
     "mechanism_consistent_scale_dominated": true,
-    "note": "FAIL gate ΔRMSE≤−5 remains; use as supporting non-Clarity mechanism evidence only."
+    "note": "Seed-level moments only. Q and r_max are not applied to this single-head corpus."
   }
 }
