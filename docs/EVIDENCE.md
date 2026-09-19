@@ -48,6 +48,12 @@ To spot-check a single number by hand, open the file and search for the key path
   and no prediction vector is released. It does carry one archival descriptor
   (`other_descriptive`) naming the single non-comparable system, which is a system
   published in the literature, not clinical data.
+- The `61/74` prevalence figure is a count of **archived entries, not independent
+  systems**: the 74 are dominated by depth/width/head ablations and seeds over a few
+  base architectures (`capacity` 19 and `fusion` 19 rows are two base families each
+  crossed with knobs; `sentence_pooling` 13 includes three-seed groups). The same
+  standard that Sec. 3 of the paper applies to the CEC2 seed×split counts is applied
+  here. Treat `61/74` as a descriptive prevalence over a stored archive.
 - `p0_mechanism_locked_protocol.json` also records the protocol guardrails (not an
   official CPC2 evaluation; Job D reparameterization is a control, not a new
   algorithm; CCC and variance-collapse framings are excluded; `hits`/`n_words` are
