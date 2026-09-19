@@ -1,0 +1,7 @@
+# Always-runnable synthetic demo (no Clarity / no clinical data).
+mode: example
+aggregates_dir: results/paper_locked
+output_dir: results
+example_npz: data/example/synthetic_heads.npz
+certificate_eps: 0.01
+ddof: 0

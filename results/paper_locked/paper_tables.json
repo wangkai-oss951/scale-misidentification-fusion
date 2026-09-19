@@ -1,0 +1,57 @@
+{
+  "note": "Locked paper aggregates. Clinical values are seed-level moments only; no prediction vectors.",
+  "certificate_freq": {
+    "cec2_linear": 1.0,
+    "cec2_linear_lab": "15/15",
+    "cec2_reparam": 0.06666666666666667,
+    "cec2_reparam_lab": "1/15",
+    "cec1": 1.0,
+    "cec1_lab": "3/3",
+    "wavlm": 1.0,
+    "wavlm_lab": "3/3",
+    "eps": 0.01,
+    "cec1_median_eps_cert": 0.337,
+    "wavlm_median_eps_cert": 0.259
+  },
+  "mse_share": {
+    "note": "mean of seed-wise shares of MSE reduction (not pooled-term ratios)",
+    "cec2_scale": 0.9886,
+    "cec2_assoc": 0.0053,
+    "cec2_mean": 0.0062,
+    "clinical_scale": 0.8933,
+    "clinical_assoc": 0.1888,
+    "clinical_mean": -0.0820
+  },
+  "table1": [
+    ["Setting", "Cert @ ε=.01", "Scale / headroom", "Note"],
+    ["CEC2 linear", "15/15 (med 0.404)", "G_aff 8.91–11.15", "barrier"],
+    ["CEC2 reparam", "1/15", "98.9% scale share; G_aff -0.02–0.35", "intervention"],
+    ["CEC1", "3/3 (med 0.337)", "affine-coordinate ΔRMSE=-9.64/-9.04/-9.49", "Clarity family"],
+    ["WavLM", "3/3 (med 0.259)", "G_q=0.92", "cross-encoder"],
+    ["Census raw", "—", "61/74 q<r (82.4%)", "archived ecosystem, not official leaderboard"],
+    ["Clinical", "— (single head; Q,r_max N/A)", "scale share 89.3%; G_q=0.727; ΔRMSE=-4.41", "non-Clarity clinical"]
+  ],
+  "table2": [
+    ["Check", "Result", "Rules out"],
+    ["Positive affine units", "15/15: π, r unchanged (max |Δr|≈4.4e-16); raw w changes", "weights as importance"],
+    ["Fix z, R, ρ; vary σ_j", "r, π invariant; q, β, s, w vary", "representation content"],
+    ["Before fusion", "RMSE↓, β↑, q↑ in 75/75 pairs and 25/25 cells", "fusion-only artifact"],
+    ["Listener / scene residual", "Q<r remains 15/15 in both", "group-mean artifact"]
+  ],
+  "unit_change_example": {
+    "split": 0,
+    "seed": 1,
+    "w": [0.04, 0.54, 0.17, 0.20, 0.05],
+    "w_after": [0.06, 0.03, 0.01, 0.09, 0.81],
+    "note": "positive component-wise affine units; π and r unchanged to machine precision"
+  },
+  "census": {
+    "explicitly_raw_uncalibrated_q_lt_r": "61/74",
+    "not_official_cpc2_leaderboard": true
+  },
+  "identifiability_closure": {
+    "t1_max_rel_mse_err": 2.05e-15,
+    "t2_max_abs_dr": 7.8e-16,
+    "t3_t4_max_abs_dr": 4.4e-16
+  }
+}

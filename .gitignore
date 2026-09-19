@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+results/*.png
+results/*.pdf
+data/example/synthetic_heads.npz

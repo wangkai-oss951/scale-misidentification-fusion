@@ -1,0 +1,8 @@
+column,required,notes
+y,yes,"intelligibility label on [0,100] (or any raw scale)"
+yhat_0..yhat_{k-1},yes,"component predictions, same rows as y"
+split,yes,train/dev/test
+listener,optional,for within-listener residualization
+scene,optional,for within-scene residualization
+audio,no,not used; do not include participant audio
+person_id,no,do not release identifiable IDs in public dumps

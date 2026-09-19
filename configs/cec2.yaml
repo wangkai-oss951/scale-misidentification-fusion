@@ -1,0 +1,17 @@
+# CEC2 paper-figure reproduction from locked aggregates (no raw audio).
+# Predictions are not redistributed. Point predictions_root at your local
+# five-head npz layout only if you have Clarity access and want to recompute.
+mode: paper_aggregates
+aggregates_dir: results/paper_locked
+output_dir: results
+certificate_eps: 0.01
+ddof: 0
+heads:
+  - raw768_time
+  - raw768_fft_complex_N1024
+  - raw768_time_L8
+  - raw768_time_wide
+  - raw768_time_L6
+# Optional recompute (not required for Fig.1–3 / tables):
+# predictions_root: null
+# pred_glob: "split{split}/{head}/{arm}/s{seed}/full_pred.npz"

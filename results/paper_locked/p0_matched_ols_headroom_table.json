@@ -1,0 +1,65 @@
+{
+  "protocol": "p0_matched_ols_headroom_table",
+  "arms": {
+    "linear_raw": "mse_linear max-r fusion raw output",
+    "linear_plus_dev_ols": "same + DEV unclipped OLS affine, TEST frozen",
+    "reparam_raw": "mse_sigmoid / output-link reparam raw output (matched training)",
+    "reparam_plus_dev_ols": "same + DEV unclipped OLS"
+  },
+  "note": "Reparam here is the locked CEC2 output-link (mse_sigmoid), matching supplement G_aff 8.91–11.15 vs −0.02–0.35. Not a claim that reparam beats OLS.",
+  "linear_G_aff_range": [
+    8.90912241831615,
+    11.152351121944937
+  ],
+  "reparam_G_aff_range": [
+    -0.02435024104601761,
+    0.34710440612820054
+  ],
+  "rows": [
+    {
+      "split": 0,
+      "linear_raw_rmse": 36.971474381059664,
+      "linear_plus_dev_ols_rmse": 25.819123259114733,
+      "linear_G_aff": 11.152351121944937,
+      "reparam_raw_rmse": 25.633109264465116,
+      "reparam_plus_dev_ols_rmse": 25.561213249290915,
+      "reparam_G_aff": 0.07189601517419557
+    },
+    {
+      "split": 1,
+      "linear_raw_rmse": 36.100556084901775,
+      "linear_plus_dev_ols_rmse": 25.519218667536148,
+      "linear_G_aff": 10.581337417365633,
+      "reparam_raw_rmse": 25.388266965338744,
+      "reparam_plus_dev_ols_rmse": 25.412617206384763,
+      "reparam_G_aff": -0.02435024104601761
+    },
+    {
+      "split": 2,
+      "linear_raw_rmse": 35.142105813046534,
+      "linear_plus_dev_ols_rmse": 24.593622415465138,
+      "linear_G_aff": 10.5484833975814,
+      "reparam_raw_rmse": 24.99972962674124,
+      "reparam_plus_dev_ols_rmse": 24.826962559964368,
+      "reparam_G_aff": 0.17276706677686823
+    },
+    {
+      "split": 3,
+      "linear_raw_rmse": 35.93770932391403,
+      "linear_plus_dev_ols_rmse": 27.028586905597876,
+      "linear_G_aff": 8.90912241831615,
+      "reparam_raw_rmse": 26.790443122178043,
+      "reparam_plus_dev_ols_rmse": 26.764331351848554,
+      "reparam_G_aff": 0.02611177032948812
+    },
+    {
+      "split": 4,
+      "linear_raw_rmse": 35.58878032268674,
+      "linear_plus_dev_ols_rmse": 25.037926250759728,
+      "linear_G_aff": 10.550854071927002,
+      "reparam_raw_rmse": 25.347554980911468,
+      "reparam_plus_dev_ols_rmse": 25.00045057478327,
+      "reparam_G_aff": 0.34710440612820054
+    }
+  ]
+}
